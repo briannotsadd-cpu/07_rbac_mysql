@@ -45,3 +45,8 @@ next-env.d.ts
 /playwright-report/
 /e2e/
 /playwright.config.mjs
+
+# local notes
+/AGENTS.md
+/README.md
+/CLAUDE.md
