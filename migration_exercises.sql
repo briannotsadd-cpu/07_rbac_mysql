@@ -6,6 +6,7 @@ ALTER TABLE users
   MODIFY role ENUM('student', 'teacher', 'staff', 'admin') NOT NULL DEFAULT 'student';
 
 -- ฝึกต่อข้อ 3: เก็บผู้โพสต์ข่าว เพื่อให้ staff แก้ไขได้เฉพาะข่าวของตนเอง
+-- แยกเป็น 2 คำสั่ง เพราะ TiDB เพิ่มคอลัมน์และ foreign key ในคำสั่งเดียวกันไม่ได้
+ALTER TABLE news ADD COLUMN author_id INT NULL;
 ALTER TABLE news
-  ADD COLUMN author_id INT NULL,
   ADD CONSTRAINT fk_news_author FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL;
